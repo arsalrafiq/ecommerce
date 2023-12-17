@@ -45,58 +45,6 @@ const ServiceData = [
     image: "/admin ui/products/apple-ipad-air-256gb-purple.png",
   },
 ];
-
-// const Products = () => {
-//   return (
-//     <div className="flex justify-center flex-col h-[700px] bg-gray-200">
-//             <h2 className="text-2xl mt-4 font-bold text-center">New Collections</h2>
-//             <p className="text-start px-2 text-lg">Showing 1 - 3 of 15 Products</p>
-//       <Swiper
-//         breakpoints={{
-//           340: {
-//             slidesPerView: 2,
-//             spaceBetween: 15,
-//           },
-//           700: {
-//             slidesPerView: 3,
-//             spaceBetween: 15,
-//           },
-//         }}
-//         freeMode={true}
-//         pagination={{
-//           clickable: true,
-//         }}
-//         modules={[FreeMode, Pagination]}
-//         className="max-w-[100%] lg:max-w-[100%] mt-8">
-
-//             {ServiceData.map((item) => (
-//           <SwiperSlide key={item.title}>
-//             <div className="flex flex-col gap-4 mb-20 bg-white group relative shadow-lg text-gray-900 rounded-xl px-20 py-2 h-[250px] w-[215px] lg:h-[500px] lg:w-[420px] overflow-hidden cursor-pointer">
-//               <img
-//                 src={item.image}
-//                 alt={item.title}
-//                 className="w-auto h-auto object-cover object-center "
-//               />
-//               <div />
-//               <div className="flex flex-col justify-between p-4 group-hover:opacity-50">
-//                 <h1 className="text-xl lg:text-1xl font-bold">{item.title}</h1>
-//                 <div className="font-bold">
-//                   <h1 className="text-xl lg:text-2xl">{item.price}</h1>
-//                   <p className="lg:text-[18px]">{item.description}</p>
-//                 </div>
-//                 <RxArrowTopRight className="absolute bottom-5 left-5 w-[35px] h-[35px] text-gray-800 group-hover:text-gray-800 group-hover:rotate-45 duration-100" />
-//               </div>
-//             </div>
-//           </SwiperSlide>
-//         ))}
-//       </Swiper>
-//     </div>
-//   );
-// };
-
-// export default Products;
-
-
 const Products = () => {
   const imageStyles = {
     '@media (min-width: 640px)': {
@@ -123,6 +71,10 @@ const Products = () => {
             slidesPerView: 1, // Show only one slide on small screens
             spaceBetween: 15,
           },
+          550: {
+            slidesPerView: 2, // Show only one slide on small screens
+            spaceBetween: 15,
+          },
           700: {
             slidesPerView: 3,
             spaceBetween: 15,
@@ -133,20 +85,20 @@ const Products = () => {
           clickable: true,
         }}
         modules={[FreeMode, Pagination]}
-        className="max-w-[50%] lg:max-w-[90%] mt-4">
+        className="max-w-[80%] lg:max-w-[90%] mt-4">
 
         {ServiceData.map((item) => (
           <SwiperSlide key={item.title}>
-            <div className="flex flex-col gap-4 mb-8 bg-white group relative shadow-lg text-gray-900 rounded-xl p-4 h-[250px] lg:h-[500px] overflow-hidden cursor-pointer">
+            <div className="flex flex-col gap-4 mb-8 bg-white items-center group relative shadow-lg text-gray-900 rounded-xl p-4 sm:h-[250px] md:h-[250px] lg:h-[450px] overflow-hidden cursor-pointer">
               <img
                 src={item.image}
                 alt={item.title}
                 style={{ ...imageStyles, width: '60%', objectFit: 'cover', borderRadius: '8px'}}
               />
-              <div className="flex flex-col justify-between flex-1 p-12 group-hover:opacity-50">
-                <h1 className="text-lg sm:text-xl lg:text-xl font-bold">{item.title}</h1>
+              <div className="flex flex-col justify-centre flex-1 p-2 group-hover:opacity-50">
+                <h1 className="text-lg sm:text-sm lg:text-lg font-bold">{item.title}</h1>
                 <div className="font-bold">
-                  <h1 className="text-base sm:text-lg lg:text-xl">{item.price}</h1>
+                  <h1 className="text-base sm:text-base lg:text-xl item-centre justify-centre">{item.price}</h1>
                   <p className="text-sm sm:text-base lg:text-lg">{item.description}</p>
                 </div>
                 <RxArrowTopRight className="absolute bottom-2 left-2 w-6 h-6 text-gray-800 group-hover:text-gray-800 group-hover:rotate-45 duration-100" />

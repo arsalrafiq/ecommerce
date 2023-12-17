@@ -38,7 +38,7 @@ const DealsOfTheMonth = () => {
   }, []);
 
   return (
-    <section className="py-8 bg-gray-100">
+    <section className="py-8 bg-white">
       <div className="container mx-auto grid grid-cols-1 md:grid-cols-2 gap-8 mb-8">
         <div className="textBox">
           <h3 className="text-3xl font-bold mb-4 title">Deals of the Month</h3>
@@ -72,7 +72,7 @@ const DealsOfTheMonth = () => {
 };
 
 const StatBox = ({ label, value }: { label: string; value: number }) => (
-  <li className="w-96 h-auto text-center statBox border border-solid border-gray-300 rounded p-4">
+  <li className="bg-gray-100 w-full h-auto text-center statBox border border-solid border-gray-300 rounded p-4">
     <h4 className="text-3xl font-bold">{value}</h4>
     <p className="text-sm">{label}</p>
   </li>
