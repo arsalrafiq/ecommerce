@@ -1,6 +1,7 @@
 "use client";
 import React, { useState } from "react";
 import Link from "next/link";
+import Image from 'next/image';
 
 // Sample data for demonstration purposes
 const products = [
@@ -191,24 +192,27 @@ const ProductView: React.FC = () => {
           </div>
         )}
       </div>
-<div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-3 gap-4">
-  {filteredProducts.map((product) => (
-    <div key={product.id} className="border p-2 flex flex-col items-center justify-center">
-      <img
-        src={product.imageUrl}
-        alt={product.name}
-        className="w-auto h-48 object-cover mb-4"
-      />
-      <h3 className="text-xl font-semibold mb-2">{product.name}</h3>
-      <p className="text-gray-800 mb-2">{product.description}</p>
-      <p className="text-lg font-bold">{product.price}</p>
-      <Link href={`/product/${product.id}`}>
-        <span className="text-gray-800">View Details</span>
-      </Link>
-    </div>
-  ))}
-</div>
 
+      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-3 gap-4">
+        {filteredProducts.map((product) => (
+          <div key={product.id} className="border p-2 flex flex-col items-center justify-center">
+            <Image
+              src={product.imageUrl}
+              alt={product.name}
+              width={300} // Adjust the width as needed
+              height={200} // Adjust the height as needed
+              objectFit="cover"
+              className="mb-4"
+            />
+            <h3 className="text-xl font-semibold mb-2">{product.name}</h3>
+            <p className="text-gray-800 mb-2">{product.description}</p>
+            <p className="text-lg font-bold">{product.price}</p>
+            <Link href={`/product/${product.id}`}>
+              <span className="text-gray-800">View Details</span>
+            </Link>
+          </div>
+        ))}
+      </div>
     </div>
   );
 };

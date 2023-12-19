@@ -1,8 +1,10 @@
+"use client"
 // pages/deals-of-the-month.tsx
-'use client'
 import React, { useState, useEffect } from 'react';
 import Head from 'next/head';
 import Link from 'next/link';
+import Image from 'next/image';
+
 const DealsOfTheMonth = () => {
   const [time, setTime] = useState({
     days: 0,
@@ -37,6 +39,7 @@ const DealsOfTheMonth = () => {
     };
   }, []);
 
+
   return (
     <section className="py-8 bg-white">
       <div className="container mx-auto grid grid-cols-1 md:grid-cols-2 gap-8 mb-8">
@@ -54,12 +57,16 @@ const DealsOfTheMonth = () => {
             <StatBox label="Seconds" value={time.seconds} />
           </ul>
         </div>
-         <div
-  className="w-auto h-auto sm:h-96 md:h-128 mt-4 px-8 object-cover bg-cover bg-center"
-  style={{
-    backgroundImage: `url('/assets/images/image-4.svg')`, // Replace with your image path
-  }}
-></div>
+        
+        {/* Use the Image component for the background image */}
+        <div className="w-auto h-auto sm:h-96 md:h-128 mt-4 relative">
+          <Image
+            src="/assets/images/image-4.svg" // Replace with your image path
+            alt="Background Image"
+            layout="fill"
+            objectFit="cover"
+          />
+        </div>
 
         <Link href="/Categories">
           <button className="bg-black text-white py-2 px-4 rounded focus:outline-none items-center">
