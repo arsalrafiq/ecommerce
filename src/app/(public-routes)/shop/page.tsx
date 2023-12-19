@@ -1,5 +1,6 @@
 import Link from "next/link";
 import React from "react";
+import Image from 'next/image';
 
 const menu = [
   {
@@ -35,9 +36,22 @@ const menu = [
 ];
 
 const Home = () => {
+  const imageStyles = {
+    '@media (min-width: 640px)': {
+      height: '120px',
+    },
+    '@media (min-width: 768px)': {
+      height: '160px',
+    },
+    '@media (min-width: 1024px)': {
+      height: '200px',
+    },
+    '@media (min-width: 1280px)': {
+      height: '240px',
+    },
+  };
+
   return (
-    // <div className="w-[80%] mx-auto">
-    //   <div className=" bg-red-300 justify- text-xl font-bold mb-6 mt-4">Shop by Categories <Link href={"/Categories"} className="px-20">Show All</Link></div>
     <div className="w-[80%] mx-auto">
       <div className="flex justify-between items-center text-xl font-bold mb-6 mt-4 p-4">
         <div>Shop by Categories</div>
@@ -46,23 +60,19 @@ const Home = () => {
         </Link>
       </div>
       
-      <div className=" w-[90%] grid grid-cols-1 gap-8 sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-3 mx-auto">
+      <div className="w-[100%] grid grid-cols-1 gap-4 sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-3 mx-auto">
         {menu.map((item, index) => (
-          <div
-            key={index}
-            className="border rounded-sm px-1 mt-4 mx-2 shadow-2xl text-center"
-          >
-            <img
+          <div key={index} className="border rounded-sm px-1 mt-2 mx-1 shadow-xl text-center">
+            <Image
               src={item.image}
               alt={item.title}
-              className="w-full h-48 object-cover mb-4"
+              width={300} // Set a suitable width
+              height={200} // Set a suitable height
+              layout="responsive"
+              style={{ ...imageStyles, width: '100%', objectFit: 'cover', borderRadius: '8px' }}
             />
-            <p className=" bg-white rounded-lg font-bold text-xl">
-              {item.title}
-            </p>
+            <p className="bg-white rounded-lg font-bold text-xl">{item.title}</p>
             <p className="mt-2 text-gray-700">${item.price}</p>
-            <p className="mt-2">
-                 </p>
           </div>
         ))}
       </div>
